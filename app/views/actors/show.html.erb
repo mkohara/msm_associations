@@ -20,7 +20,14 @@
       <dt>Number of Roles</dt>
       <dd><%= Character.where(:actor_id=>@actor.id).count %></dd>
 
-
+      <dt>Characters</dt>
+      <dd>
+      <ul class="list-group">
+        <% Character.where(:actor_id =>@actor.id).each do |character| %>
+        <li class="list-group=item">
+        <%= character.name %></li>
+        <% end %>
+      </ul></dd>
 
     </dl>
 
