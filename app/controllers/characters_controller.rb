@@ -7,12 +7,17 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
+    @movie=Movie.find(params[:id])
 
     render("characters/show.html.erb")
   end
 
   def new
     @character = Character.new
+    @character.movie_id = params[:movie_id]
+    @character.actor_id = params[:actor_id]
+    @character.name = params[:name]
+    save_status=@character.save
 
     render("characters/new.html.erb")
   end
