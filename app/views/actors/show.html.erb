@@ -22,25 +22,28 @@
 
       <dt>Characters</dt>
       <dd>
-      <ul class="list-group">
-        <% Character.where(:actor_id =>@actor.id).each do |character| %>
-        <li class="list-group=item">
-        <%= character.name %></li>
-        <% end %>
-      </ul></dd>
+        <ul class="list-group">
 
-    </dl>
+          <% @actor.characters.each do |character| %>
+          <li class="list-group=item">
+            <a href="/movies/<%= character.movie_id %>"><%= character.movie.title %></a>
+            (<%= character.name %>)
+          </li>
+            <% end %>
+          </ul></dd>
 
-    <div class="btn-group btn-group-justified">
-      <a href="/actors" class="btn btn-primary">
-        Back
-      </a>
-      <a href="/actors/<%= @actor.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_actor/<%= @actor.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+        </dl>
+
+        <div class="btn-group btn-group-justified">
+          <a href="/actors" class="btn btn-primary">
+            Back
+          </a>
+          <a href="/actors/<%= @actor.id %>/edit" class="btn btn-warning">
+            Edit
+          </a>
+          <a href="/delete_actor/<%= @actor.id %>" class="btn btn-danger" rel="nofollow">
+            Delete
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
