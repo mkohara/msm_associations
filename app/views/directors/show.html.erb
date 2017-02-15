@@ -22,7 +22,7 @@
 
       <dt>Filmography</dt>
       <dd><ul class="list-group">
-        <% Movie.where(:director_id=>@director_id).each do |specific_movie| %>
+        <% @director.movies.each do |specific_movie| %>
         <li class="list-group-item">
         <%= specific_movie.title %> (<%= specific_movie.year %>)</li>
         <% end %>
