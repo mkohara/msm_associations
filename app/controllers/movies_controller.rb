@@ -9,6 +9,8 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @character =Character.new
+    @characters =Character.where(:movie_id=> params[:id])
 
     render("movies/show.html.erb")
   end

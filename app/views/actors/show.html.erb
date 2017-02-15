@@ -50,16 +50,11 @@
                   </div>
 
                   <!-- Label and input for actor_id -->
-                  <div class="form-group">
-                    <label for="actor_id" class="control-label">
-                      Actor
-                    </label>
+                    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                    <input type="hidden" name="actor_id" value="<%= @actor.id %>">
 
-                    <%= select_tag(:actor_id, options_from_collection_for_select(Actor.all, :id, :name, @character.actor_id), :class => "form-control") %>
-                    <p class="help-block">
-                    <a href="/actors/new">or add a new actor</a></p>
 
-                  </div>
+
 
                   <!-- Label and input for name -->
                   <div class="form-group">

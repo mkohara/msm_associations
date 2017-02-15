@@ -8,6 +8,7 @@ class ActorsController < ApplicationController
   def show
     @actor = Actor.find(params[:id])
     @character=Character.new
+    @characters=Character.where(:actor_id => params[:id])
 
     render("actors/show.html.erb")
   end
